@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Tweet;
+use Illuminate\Support\Facades\Auth;
+
 class HomeController extends Controller
 {
     /**
@@ -17,6 +20,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $current_user = Auth::user();
+
+        $ordered_tweets = Tweet::orderByDesc('created_at')->get();
+
+        return view('home', ['tweets' => $ordered_tweets, 'current_user' => $current_user]);
     }
 }

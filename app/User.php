@@ -9,6 +9,11 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public function tweets()
+    {
+        return $this->hasMany('App\Tweet');
+    }
+
     /**
      * 複数代入を行う属性
      *
@@ -20,6 +25,7 @@ class User extends Authenticatable
         'password',
         'display_name',
         'avatar',
+        'description',
     ];
 
     /**
