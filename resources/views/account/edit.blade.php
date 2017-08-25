@@ -8,8 +8,8 @@
         <div class="row">
 
             <div class="col-lg-3">
-                @include('shared.current_user_data', ['current_user' => $current_user])
-                @include('shared.button_account_and_profile', ['current_user' => $current_user])
+                @include('shared.user.current_user_data', ['current_user' => $current_user, 'followings' => $followings, 'followers' => $followers])
+                @include('shared.user.button_account_and_profile', ['current_user' => $current_user])
             </div>
 
             <div class="col-lg-6">

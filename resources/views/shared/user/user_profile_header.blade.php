@@ -18,13 +18,13 @@
             <li class="nav-item">
                 <a href="{{ url($user->url_name.'/following') }}" class="nav-link">
                     フォロー
-                    <strong class="d-block">30</strong>
+                    <strong class="d-block">{{ count($followings) }}</strong>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{ url($user->url_name.'/followers') }}" class="nav-link">
                     フォロワー
-                    <strong class="d-block">7</strong>
+                    <strong class="d-block">{{ count($followers) }}</strong>
                 </a>
             </li>
         </ul>

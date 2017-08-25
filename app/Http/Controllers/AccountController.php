@@ -10,8 +10,14 @@ class AccountController extends Controller
     public function edit()
     {
         $current_user = Auth::user();
+        $followings = $current_user->followings;
+        $followers = $current_user->followers;
 
-        return view('account.edit', ['current_user' => $current_user]);
+        return view('account.edit', [
+            'current_user' => $current_user,
+            'followings' => $followings,
+            'followers' => $followers,
+        ]);
     }
 
     public function update(Request $request)

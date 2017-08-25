@@ -7,7 +7,7 @@
         <div class="row">
 
             <div class="col-lg-3">
-                @include('shared.current_user_data', ['current_user' => $current_user])
+                @include('shared.user.current_user_data', ['current_user' => $current_user, 'followings' => $followings, 'followers' => $followers])
             </div>
 
             <div class="col-lg-6">

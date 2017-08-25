@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    @include('shared.navbar', ['current_user' => $current_user])
+    @include('shared.navbar', ['user' => $current_user])
 
     <div class="container pt-4">
         <div class="row">

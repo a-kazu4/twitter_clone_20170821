@@ -14,6 +14,16 @@ class User extends Authenticatable
         return $this->hasMany('App\Tweet');
     }
 
+    public function followers()
+    {
+        return $this->belongsToMany('App\User', 'friendships', 'followee_id', 'follower_id');
+    }
+
+    public function followings()
+    {
+        return $this->belongsToMany('App\User', 'friendships', 'follower_id', 'followee_id');
+    }
+
     /**
      * 複数代入を行う属性
      *
@@ -37,4 +47,5 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
 }

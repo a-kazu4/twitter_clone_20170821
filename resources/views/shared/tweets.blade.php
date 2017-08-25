@@ -6,7 +6,7 @@
         </a>
         <div class="media-body">
             <div class="mb-2">
-                <a class="text-inherit" href="{{ url('user/'.$tweet->user->url_name) }}">
+                <a class="text-inherit" href="{{ url($tweet->user->url_name) }}">
                     <strong>{{ $tweet->user->display_name }}</strong>
                     <span class="text-muted">&#64;{{ $tweet->user->url_name }}</span>
                 </a>

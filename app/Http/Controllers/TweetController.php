@@ -22,12 +22,17 @@ class TweetController extends Controller
 
     public function search(Request $request)
     {
+        $current_user = Auth::user();
         $query = Tweet::query();
         if(!empty($request)) {
             $keyword = $request->input('search');
             $tweets = $query->where('body', 'like', '%'.$keyword.'%')->orderByDesc('created_at')->get();
         }
         $data = $query->get();
-        return view('tweet.search', ['tweets' => $tweets, 'keyword' => $keyword], compact('data', 'search'));
+        return view('tweet.search', [
+            'current_user' => $current_user,
+            'tweets' => $tweets,
+            'keyword' => $keyword
+        ], compact('data', 'search'));
     }
 }
